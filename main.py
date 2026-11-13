@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import uvicorn
 from mysite.admin.setup import setup_admin
-from mysite.api import auth, category, city, order, product, reivew, store, user
+from mysite.api import auth, category, city, order, product, reivew, store, user, ai
 
 logistics_app = FastAPI(title='GoodsLogistics')
 logistics_app.include_router(auth.auth_router)
@@ -12,6 +12,7 @@ logistics_app.include_router(product.product_router)
 logistics_app.include_router(reivew.review_router)
 logistics_app.include_router(city.city_router)
 logistics_app.include_router(order.order_router)
+logistics_app.include_router(ai.ai_router)
 
 setup_admin(logistics_app)
 

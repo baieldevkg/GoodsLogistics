@@ -102,7 +102,6 @@ class ReviewOutSchema(BaseModel):
     created_date: datetime
 
 
-
 class CityInputSchema(BaseModel):
     city_name: str
 
@@ -112,7 +111,6 @@ class CityOutSchema(BaseModel):
 
     id: int
     city_name: str
-
 
 
 class OrderInputSchema(BaseModel):
@@ -132,3 +130,24 @@ class OrderOutSchema(BaseModel):
     quantity: int
     total_price: int
     created_date: datetime
+
+
+
+
+class ChatInputSchema(BaseModel):
+    question: str
+
+
+class ChatItemSchema(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    product_name: str
+    price: int
+    store_id: int
+    is_original: bool
+
+
+class ChatOutSchema(BaseModel):
+    answer: str
+    items: list[ChatItemSchema]
